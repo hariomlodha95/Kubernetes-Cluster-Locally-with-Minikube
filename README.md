@@ -16,7 +16,7 @@
 🚀 Step 1: Install Minikube & Start Cluster
 
   Start a local Kubernetes cluster using Docker driver.
-     -  minikube start --driver=docker
+   - minikube start --driver=docker
 ```
 ✅ Sample Output:
 😄  minikube v1.37.0 on Centos 10
