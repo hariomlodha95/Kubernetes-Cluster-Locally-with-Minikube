@@ -1,17 +1,17 @@
+## Build a Kubernetes Cluster Locally with Minikube
 
-Build a Kubernetes Cluster Locally with Minikube
 🎯 Objective
-
 Deploy and manage applications on Kubernetes using Minikube.
+---
 🧰 Tools Required
 •	Minikube
 •	kubectl
 •	Docker
-
+---
 📦 Deliverables
 •	Kubernetes manifests (deployment.yaml, service.yaml)
 •	Screenshots of pods, services, scaling, and describe logs
-________________________________________
+---
 
 🚀 Step 1: Install Minikube & Start Cluster
 
@@ -24,10 +24,10 @@ minikube start --driver=docker
 👍  Starting control plane node minikube in cluster minikube
 🔄  Pulling base image ...
 🌟  Kubernetes 1.30.0 is now running!
-
+---
 📄 Step 2: Create Deployment
 Store the following file in: manifests/deployment.yaml
-
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -48,14 +48,14 @@ spec:
         command: ["/bin/bash", "-c", "while true; do echo build a kubernetes cluster locally with minikube; sleep 5; done"]
         ports:
         - containerPort: 80
-
+```
 Apply the deployment:
 kubectl apply -f manifests/deployment.yaml
-________________________________________
+---
 
 🌐 Step 3: Expose App Using Service
 Store the following file in: manifests/service.yaml
-
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -68,14 +68,13 @@ spec:
     - port: 80
       targetPort: 80
       nodePort: 30007
-
+```
 Apply the service:
 kubectl apply -f manifests/service.yaml
-________________________________________
-
+---
 🔍 Step 4: Verify Pods & Services
 List Pods:
-kubectl get pods
+  - kubectl get pods
 
 ✅ Sample Output:
 NAME                                   READY   STATUS    RESTARTS   AGE
@@ -83,34 +82,36 @@ myapp-deployment-7f8c95d9f4-abcde      1/1     Running   0          40s
 myapp-deployment-7f8c95d9f4-fghij      1/1     Running   0          40s
 
 List Services:
-kubectl get svc
+  - kubectl get svc
 
 ✅ Sample Output:
 NAME            TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)         AGE
 kubernetes      ClusterIP  10.96.0.1        <none>        443/TCP         10m
 myapp-service   NodePort   10.96.145.203    <none>        80:30007/TCP    20s
-
+---
 🌐 Step 5: Access App in Browser
 
 Open the application using Minikube:
-minikube service myapp-service
+ - minikube service myapp-service
 
 ✅ Sample Output:
+```
 |-----------|--------------|-------------|--------------------------|
 | NAMESPACE |     NAME     | TARGET PORT |           URL            |
 |-----------|--------------|-------------|--------------------------|
 | default   | myapp-service|          80 | http://192.168.49.2:30007|
 |-----------|--------------|-------------|--------------------------|
+```
 🏃  Opening service default/myapp-service in default browser...
-
+---
 📈 Step 6: Scale Deployment
 
 Scale replicas up/down:
-kubectl scale deployment myapp-deployment --replicas=5
+  - kubectl scale deployment myapp-deployment --replicas=5
 
 ✅ Sample Output:
 deployment.apps/myapp-deployment scaled
-
+---
 🛠 Step 7: Describe Resources
 
 Use describe for debugging/log analysis.
@@ -141,7 +142,7 @@ Containers:
   myapp-container:
     Image:        nginx
     Started:      True
-
+---
 ✅ Summary
 This project demonstrates:
 •	Running Minikube locally
