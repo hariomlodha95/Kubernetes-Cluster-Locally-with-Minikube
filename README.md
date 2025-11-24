@@ -1,16 +1,16 @@
 ## Build a Kubernetes Cluster Locally with Minikube
 
 🎯 Objective
-Deploy and manage applications on Kubernetes using Minikube.
+    - Deploy and manage applications on Kubernetes using Minikube.
 ---
 🧰 Tools Required
-•	Minikube
-•	kubectl
-•	Docker
+   - Minikube
+   - kubectl
+   - Docker
 ---
 📦 Deliverables
-  •	Kubernetes manifests (deployment.yaml, service.yaml)
-  •	Screenshots of pods, services, scaling, and describe logs
+   - Kubernetes manifests (deployment.yaml, service.yaml)
+   - Screenshots of pods, services, scaling, and describe logs
 ---
 
 🚀 Step 1: Install Minikube & Start Cluster
@@ -153,10 +153,10 @@ Containers:
 ---
 ✅ Summary
 This project demonstrates:
-•	Running Minikube locally
-•	Deploying an NGINX app on Kubernetes
-•	Exposing using NodePort service
-•	Scaling deployment replicas
-•	Viewing logs & describing resources
+ -	Running Minikube locally
+ -	Deploying an NGINX app on Kubernetes
+ -	Exposing using NodePort service
+ -	Scaling deployment replicas
+ -  Viewing logs & describing resources
 
 
